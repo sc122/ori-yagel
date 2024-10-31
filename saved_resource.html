@@ -1,0 +1,336 @@
+
+<!-- saved from url=(0272)https://2054130789-atari-embeds.googleusercontent.com/embeds/16cb204cf3a9d4d223a0a3fd8b0eec5d/inner-frame-minified.html?jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.iw.y_am6Zw3WTA.O%2Fam%3DAACA%2Fd%3D1%2Frs%3DAHpOoo90dwaYZEu3sj8BDoMYh713hrjhhw%2Fm%3D__features__ -->
+<html dir="rtl" lang="he"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!--<base target="_blank">--><base href="." target="_blank">
+
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אישור הגעה - חלאקה וזבד הבת</title>
+    <link href="./all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #F5F0E6;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(139, 115, 85, 0.1);
+            border: 1px solid #DEB887;
+        }
+        
+        h1 {
+            color: #8B7355;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+            border-bottom: 2px solid #DEB887;
+            padding-bottom: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #8B7355;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #DEB887;
+            border-radius: 5px;
+            margin-top: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #8B7355;
+        }
+        
+        .dietary-options {
+            margin-top: 10px;
+            padding: 15px;
+            border: 1px solid #DEB887;
+            border-radius: 5px;
+            background-color: #F5F0E6;
+        }
+        
+        .dietary-options label {
+            display: inline-block;
+            margin-right: 15px;
+            font-weight: normal;
+        }
+        
+        .dietary-count {
+            margin-top: 10px;
+            display: none;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            border: 1px solid #DEB887;
+        }
+        
+        button {
+            background-color: #8B7355;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        button:hover {
+            background-color: #6B4423;
+        }
+        
+        .blessing {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #F5F0E6;
+            border-radius: 5px;
+            display: none;
+            text-align: center;
+            font-style: italic;
+            color: #8B7355;
+            border: 1px dashed #DEB887;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 10px;
+            color: #8B7355;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #F5F0E6;
+            border-radius: 5px;
+            color: #3c763d;
+            border: 1px solid #DEB887;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>אישור הגעה</h1>
+        
+        <form id="rsvpForm">
+            <div class="form-group">
+                <label for="fullName">שם מלא:</label>
+                <input type="text" id="fullName" name="fullName" required="">
+            </div>
+            
+            <div class="form-group">
+                <label for="totalGuests">כמה אורחים מגיעים?</label>
+                <select id="totalGuests" name="totalGuests" required="">
+                    <option value="">בחר/י</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="kidsUnder4">מתוכם, כמה ילדים מתחת לגיל 3?</label>
+                <select id="kidsUnder4" name="kidsUnder4">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>האם נדרש מזון מיוחד?</label>
+                <div class="dietary-options">
+                    <input type="checkbox" id="glutenFree" name="glutenFree">
+                    <label for="glutenFree">ללא גלוטן</label>
+                    
+                    <div class="dietary-count" id="glutenFreeCount">
+                        <label for="glutenFreeAmount">כמות מנות ללא גלוטן:</label>
+                        <select name="glutenFreeAmount">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                    </div>
+                    
+                    <input type="checkbox" id="vegan" name="vegan">
+                    <label for="vegan">טבעוני</label>
+                    
+                    <div class="dietary-count" id="veganCount">
+                        <label for="veganAmount">כמות מנות טבעוניות:</label>
+                        <select name="veganAmount">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="button" id="generateBlessing">
+                <i class="fas fa-heart"></i>
+                הוסף ברכה אקראית
+            </button>
+            <div id="blessing" class="blessing"></div>
+            
+            <button type="submit" style="margin-top: 20px;">
+                <i class="fas fa-paper-plane"></i>
+                שלח אישור הגעה
+            </button>
+            
+            <div id="loading" class="loading">
+                <i class="fas fa-spinner fa-spin"></i>
+                שולח את הטופס...
+            </div>
+            <div id="successMessage" class="success-message">
+                <i class="fas fa-check-circle"></i>
+                תודה על אישור ההגעה!
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw3AzPJZkIaZTIaFH3GJhflvAnF8_SOZmGuxM8UDMdtNriGODVJj5vJdgKH5j58Hy2BJA/exec';
+        const REDIRECT_URL = 'https://sites.google.com/view/ori-yagel/%D7%94%D7%96%D7%9E%D7%A0%D7%94?authuser=0';
+        
+        const blessings = [
+            "מזל טוב! שתזכו לגדל אותם בנחת ובשמחה",
+            "ברכות חמות! שתזכו לרוב נחת ואושר",
+            "מזל טוב והרבה אושר ושמחה!",
+            "שתזכו לגדל אותם לתורה, לחופה ולמעשים טובים",
+            "מאחלים לכם המון שמחה ונחת",
+            "ברכות לבביות והמון מזל טוב",
+            "שתזכו לרוות נחת מהילדים",
+            "מזל טוב! בריאות ואושר תמיד",
+            "המון ברכות והצלחה בכל",
+            "שתזכו לגדל אותם באהבה ובשמחה",
+            "מזל טוב והצלחה בכל דרככם",
+            "ברכות חמות ואיחולים לבביים",
+            "שתזכו לראות אותם גדלים ומצליחים",
+            "מאחלים לכם רק טוב ונחת",
+            "שתזכו לגדל אותם בדרך הישר",
+            "המון מזל טוב והצלחה",
+            "ברכות מקרב הלב",
+            "שתזכו לנחת, שמחה ואושר",
+            "מאחלים המון הצלחה ושמחה",
+            "שתזכו לגדל אותם בבריאות ובנחת"
+        ];
+
+        document.getElementById('glutenFree').addEventListener('change', function() {
+            document.getElementById('glutenFreeCount').style.display = 
+                this.checked ? 'block' : 'none';
+        });
+
+        document.getElementById('vegan').addEventListener('change', function() {
+            document.getElementById('veganCount').style.display = 
+                this.checked ? 'block' : 'none';
+        });
+
+        document.getElementById('generateBlessing').addEventListener('click', function() {
+            const randomBlessing = blessings[Math.floor(Math.random() * blessings.length)];
+            const blessingDiv = document.getElementById('blessing');
+            blessingDiv.textContent = randomBlessing;
+            blessingDiv.style.display = 'block';
+        });
+
+        document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const loadingDiv = document.getElementById('loading');
+            const submitButton = this.querySelector('button[type="submit"]');
+            loadingDiv.style.display = 'block';
+            submitButton.disabled = true;
+            
+            const formData = new FormData(this);
+            const data = {
+                timestamp: new Date().toLocaleString('he-IL'),
+                fullName: formData.get('fullName'),
+                totalGuests: formData.get('totalGuests'),
+                kidsUnder4: formData.get('kidsUnder4'),
+                glutenFree: formData.get('glutenFree') ? 'כן' : 'לא',
+                glutenFreeAmount: formData.get('glutenFreeAmount') || '0',
+                vegan: formData.get('vegan') ? 'כן' : 'לא',
+                veganAmount: formData.get('veganAmount') || '0',
+                blessing: document.getElementById('blessing').textContent || 'ללא ברכה'
+            };
+
+            try {
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                document.getElementById('successMessage').style.display = 'block';
+                
+                this.reset();
+                document.getElementById('blessing').style.display = 'none';
+                document.getElementById('glutenFreeCount').style.display = 'none';
+                document.getElementById('veganCount').style.display = 'none';
+                
+                setTimeout(() => {
+                    try {
+                        const newTab = window.open(REDIRECT_URL, '_blank');
+                        if (newTab) {
+                            newTab.focus();
+                        } else {
+                            window.location.href = REDIRECT_URL;
+                        }
+                    } catch (e) {
+                        window.location.href = REDIRECT_URL;
+                    }
+                }, 7000);
+
+            } catch (error) {
+                console.error('Error:', error);
+                alert('אירעה שגיאה בשליחת הטופס. אנא נסו שנית.');
+            } finally {
+                loadingDiv.style.display = 'none';
+                submitButton.disabled = false;
+            }
+        });
+    </script>
+
+</body></html>
