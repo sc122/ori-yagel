@@ -3,332 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>אישור הגעה - חלאקה וזבד הבת</title>
+    <title>חלאקה וזבד הבת לאורי-יהב</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
+            margin: 0;
+            padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            max-width: 600px;
-            margin: 20px auto;
+            background-color: #F5F0E6;
+        }
+
+        .main-container {
+            max-width: 800px;
+            margin: 0 auto;
             padding: 20px;
-            background-color: #F5F0E6;
         }
-        
-        .container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(139, 115, 85, 0.1);
-            border: 1px solid #DEB887;
-        }
-        
-        h1 {
-            color: #8B7355;
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 28px;
-            border-bottom: 2px solid #DEB887;
-            padding-bottom: 10px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #8B7355;
-        }
-        
-        input, select {
+
+        .hero-image {
             width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
             padding: 10px;
-            border: 1px solid #DEB887;
-            border-radius: 5px;
-            margin-top: 5px;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
         }
-        
-        input:focus, select:focus {
-            outline: none;
-            border-color: #8B7355;
-        }
-        
-        .dietary-options {
-            margin-top: 10px;
-            padding: 15px;
-            border: 1px solid #DEB887;
-            border-radius: 5px;
-            background-color: #F5F0E6;
-        }
-        
-        .dietary-options label {
-            display: inline-block;
-            margin-right: 15px;
-            font-weight: normal;
-        }
-        
-        .dietary-count {
-            margin-top: 10px;
-            display: none;
-            padding: 10px;
-            background-color: white;
-            border-radius: 5px;
-            border: 1px solid #DEB887;
-        }
-        
-        button {
-            background-color: #8B7355;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
+
+        .action-button {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        button:hover {
-            background-color: #6B4423;
-        }
-        
-        .blessing {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #F5F0E6;
-            border-radius: 5px;
-            display: none;
-            text-align: center;
-            font-style: italic;
-            color: #8B7355;
-            border: 1px dashed #DEB887;
+            gap: 12px;
+            background-color: white;
+            color: #444;
+            padding: 16px 24px;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            cursor: pointer;
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+            min-width: 280px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.2s;
         }
 
-        .loading {
-            display: none;
-            text-align: center;
-            margin-top: 10px;
-            color: #8B7355;
+        .action-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
-        .success-message {
-            display: none;
-            text-align: center;
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #F5F0E6;
-            border-radius: 5px;
-            color: #3c763d;
-            border: 1px solid #DEB887;
+        .button-icon {
+            width: 36px;
+            height: 36px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>אישור הגעה</h1>
+    <div class="main-container">
+        <!-- Placeholder image - replace src with your actual image -->
+        <img src="/api/placeholder/800/400" alt="Event Image" class="hero-image">
         
-        <form id="rsvpForm">
-            <div class="form-group">
-                <label for="fullName">שם מלא:</label>
-                <input type="text" id="fullName" name="fullName" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="totalGuests">כמה אורחים מגיעים?</label>
-                <select id="totalGuests" name="totalGuests" required>
-                    <option value="">בחר/י</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="kidsUnder4">מתוכם, כמה ילדים מתחת לגיל 3?</label>
-                <select id="kidsUnder4" name="kidsUnder4">
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label>האם נדרש מזון מיוחד?</label>
-                <div class="dietary-options">
-                    <input type="checkbox" id="glutenFree" name="glutenFree">
-                    <label for="glutenFree">ללא גלוטן</label>
-                    
-                    <div class="dietary-count" id="glutenFreeCount">
-                        <label for="glutenFreeAmount">כמות מנות ללא גלוטן:</label>
-                        <select name="glutenFreeAmount">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                        </select>
-                    </div>
-                    
-                    <input type="checkbox" id="vegan" name="vegan">
-                    <label for="vegan">טבעוני</label>
-                    
-                    <div class="dietary-count" id="veganCount">
-                        <label for="veganAmount">כמות מנות טבעוניות:</label>
-                        <select name="veganAmount">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            
-            <button type="button" id="generateBlessing">
-                <i class="fas fa-heart"></i>
-                הוסף ברכה אקראית
+        <div class="buttons-container">
+            <!-- RSVP Button -->
+            <button onclick="window.location.href='rsvp.html'" class="action-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="button-icon">
+                    <path fill="#4CAF50" d="M24 4C12.95 4 4 12.95 4 24c0 11.05 8.95 20 20 20s20-8.95 20-20c0-11.05-8.95-20-20-20zm10.95 16.95l-13 13c-.2.2-.45.29-.71.29-.26 0-.51-.1-.71-.29l-7.48-7.48c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l6.77 6.77 12.29-12.29c.39-.39 1.02-.39 1.41 0 .39.39.39 1.03.02 1.41z"/>
+                </svg>
+                <span>אישור הגעה</span>
             </button>
-            <div id="blessing" class="blessing"></div>
-            
-            <button type="submit" style="margin-top: 20px;">
-                <i class="fas fa-paper-plane"></i>
-                שלח אישור הגעה
+
+            <!-- Google Calendar Button -->
+            <button onclick="addToGoogleCalendar()" class="action-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="button-icon">
+                    <path fill="#fff" d="M5 39V13h38v26c0 1.1-.9 2-2 2H7c-1.1 0-2-.9-2-2z"/>
+                    <path fill="#1976d2" d="M43 11v3H5v-3c0-1.1.9-2 2-2h34c1.1 0 2 .9 2 2z"/>
+                    <path fill="#1976d2" d="M5 39V13h38v26c0 1.1-.9 2-2 2H7c-1.1 0-2-.9-2-2z"/>
+                    <path fill="#fff" d="M24 37c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z"/>
+                    <path fill="#fff" d="M23 32h2v-2h-2v2zm0-4h2v-6h-2v6z"/>
+                    <path fill="#1976d2" d="M14 4v9h4V4h-4zm16 0v9h4V4h-4z"/>
+                </svg>
+                <span>הוסף ליומן Google</span>
             </button>
-            
-            <div id="loading" class="loading">
-                <i class="fas fa-spinner fa-spin"></i>
-                שולח את הטופס...
-            </div>
-            <div id="successMessage" class="success-message">
-                <i class="fas fa-check-circle"></i>
-                תודה על אישור ההגעה!
-            </div>
-        </form>
+
+            <!-- Waze Button -->
+            <button onclick="navigateToWaze()" class="action-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="button-icon">
+                    <path fill="#33ccff" d="M24,4C13.5,4,5,12.1,5,22c0,11.5,17.2,22.2,17.9,22.7c0.1,0.1,0.2,0.1,0.3,0.1c0.1,0,0.2,0,0.3-0.1 C24.2,44.2,43,33.5,43,22C43,12.1,34.5,4,24,4z"/>
+                    <path fill="#fff" d="M24,18.6c-2.4,0-4.4,2-4.4,4.4s2,4.4,4.4,4.4s4.4-2,4.4-4.4S26.4,18.6,24,18.6z"/>
+                    <path fill="#fff" d="M31.6,17.5c0.2,0,0.4-0.1,0.5-0.2c0.9-0.9,0.9-2.3,0-3.2c-0.9-0.9-2.3-0.9-3.2,0c-0.1,0.1-0.2,0.3-0.2,0.5 c0,0.2,0.1,0.4,0.2,0.5l2.2,2.2C31.2,17.4,31.4,17.5,31.6,17.5z"/>
+                    <path fill="#fff" d="M33.6,21.8c0-0.2-0.1-0.4-0.2-0.5l-2.2-2.2c-0.1-0.1-0.3-0.2-0.5-0.2s-0.4,0.1-0.5,0.2c-0.9,0.9-0.9,2.3,0,3.2 c0.9,0.9,2.3,0.9,3.2,0C33.5,22.2,33.6,22,33.6,21.8z"/>
+                </svg>
+                <span>נווט ב-Waze</span>
+            </button>
+        </div>
     </div>
 
     <script>
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw3AzPJZkIaZTIaFH3GJhflvAnF8_SOZmGuxM8UDMdtNriGODVJj5vJdgKH5j58Hy2BJA/exec';
-        const REDIRECT_URL = 'https://sites.google.com/view/ori-yagel/%D7%94%D7%96%D7%9E%D7%A0%D7%94?authuser=0';
-        
-        const blessings = [
-            "מזל טוב! שתזכו לגדל אותם בנחת ובשמחה",
-            "ברכות חמות! שתזכו לרוב נחת ואושר",
-            "מזל טוב והרבה אושר ושמחה!",
-            "שתזכו לגדל אותם לתורה, לחופה ולמעשים טובים",
-            "מאחלים לכם המון שמחה ונחת",
-            "ברכות לבביות והמון מזל טוב",
-            "שתזכו לרוות נחת מהילדים",
-            "מזל טוב! בריאות ואושר תמיד",
-            "המון ברכות והצלחה בכל",
-            "שתזכו לגדל אותם באהבה ובשמחה",
-            "מזל טוב והצלחה בכל דרככם",
-            "ברכות חמות ואיחולים לבביים",
-            "שתזכו לראות אותם גדלים ומצליחים",
-            "מאחלים לכם רק טוב ונחת",
-            "שתזכו לגדל אותם בדרך הישר",
-            "המון מזל טוב והצלחה",
-            "ברכות מקרב הלב",
-            "שתזכו לנחת, שמחה ואושר",
-            "מאחלים המון הצלחה ושמחה",
-            "שתזכו לגדל אותם בבריאות ובנחת"
-        ];
-
-        document.getElementById('glutenFree').addEventListener('change', function() {
-            document.getElementById('glutenFreeCount').style.display = 
-                this.checked ? 'block' : 'none';
-        });
-
-        document.getElementById('vegan').addEventListener('change', function() {
-            document.getElementById('veganCount').style.display = 
-                this.checked ? 'block' : 'none';
-        });
-
-        document.getElementById('generateBlessing').addEventListener('click', function() {
-            const randomBlessing = blessings[Math.floor(Math.random() * blessings.length)];
-            const blessingDiv = document.getElementById('blessing');
-            blessingDiv.textContent = randomBlessing;
-            blessingDiv.style.display = 'block';
-        });
-
-        document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const loadingDiv = document.getElementById('loading');
-            const submitButton = this.querySelector('button[type="submit"]');
-            loadingDiv.style.display = 'block';
-            submitButton.disabled = true;
-            
-            const formData = new FormData(this);
-            const data = {
-                timestamp: new Date().toLocaleString('he-IL'),
-                fullName: formData.get('fullName'),
-                totalGuests: formData.get('totalGuests'),
-                kidsUnder4: formData.get('kidsUnder4'),
-                glutenFree: formData.get('glutenFree') ? 'כן' : 'לא',
-                glutenFreeAmount: formData.get('glutenFreeAmount') || '0',
-                vegan: formData.get('vegan') ? 'כן' : 'לא',
-                veganAmount: formData.get('veganAmount') || '0',
-                blessing: document.getElementById('blessing').textContent || 'ללא ברכה'
+        function addToGoogleCalendar() {
+            const eventDetails = {
+                text: 'חלקה ליגל וזבד הבת לאורי-יהב',
+                startDate: '20241107T174500',
+                endDate: '20241107T211500',
+                location: 'החצר האחורית, שדות 38, עין הבשור',
+                details: ''
             };
 
-            try {
-                const response = await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
+            const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE`
+                + `&text=${encodeURIComponent(eventDetails.text)}`
+                + `&dates=${eventDetails.startDate}/${eventDetails.endDate}`
+                + `&location=${encodeURIComponent(eventDetails.location)}`
+                + `&details=${encodeURIComponent(eventDetails.details)}`;
 
-                document.getElementById('successMessage').style.display = 'block';
-                
-                this.reset();
-                document.getElementById('blessing').style.display = 'none';
-                document.getElementById('glutenFreeCount').style.display = 'none';
-                document.getElementById('veganCount').style.display = 'none';
-                
-                setTimeout(() => {
-                    try {
-                        const newTab = window.open(REDIRECT_URL, '_blank');
-                        if (newTab) {
-                            newTab.focus();
-                        } else {
-                            window.location.href = REDIRECT_URL;
-                        }
-                    } catch (e) {
-                        window.location.href = REDIRECT_URL;
-                    }
-                }, 7000);
+            window.open(googleCalendarUrl, '_blank');
+        }
 
-            } catch (error) {
-                console.error('Error:', error);
-                alert('אירעה שגיאה בשליחת הטופס. אנא נסו שנית.');
-            } finally {
-                loadingDiv.style.display = 'none';
-                submitButton.disabled = false;
-            }
-        });
+        function navigateToWaze() {
+            const wazeUrl = "https://waze.com/ul/hsv83zty5x";
+            window.open(wazeUrl, '_blank');
+        }
     </script>
 </body>
 </html>
